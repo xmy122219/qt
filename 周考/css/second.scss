@@ -1,0 +1,16 @@
+@charset "utf-8";
+*{padding: 0;margin: 0;list-style: none;}
+.top{width: 100%;border-bottom: 3px solid black;display: flex;
+justify-content: space-between;font-size: 16px;align-items: center;}
+.top ul{display: flex;
+li{
+    border: 1px solid goldenrod;padding: 0.3rem;
+}}
+.bot1,.bot2{
+    width: 100%;display: flex;justify-content: space-between;
+    div{
+        width: 23%;text-align: center;
+        p{font-size: 12px;}
+        img{width: 100%;}
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular-route1.4.5.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="" type="text/javascript" charset="utf-8"></script>
+	    <link rel="stylesheet" type="text/css" href="css/second.css"/>
+	</head>
+	<body>
+		<div ng-app="app1" ng-controller="ct1">
+			<div class="top">
+				<ul>
+					<a href="#home"><li style="background: black;color: white;">上架时间</li></a>
+					<a href="#my" ng-click="li()"><li>商品价格</li></a>
+					<a href="#you"><li>更新时间</li></a>
+				</ul>
+				<span>共78页</span>
+			</div>
+			<ng-view>
+				
+			</ng-view>
+			
+			<!--<div class="bot2">
+				<div id="each" ng-repeat="obj in arr">
+					<img src={{obj.src}}/>
+					<p>{{obj.p}}</p>
+					<p>{{obj.price}}</p>
+				</div>
+			</div>-->
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app=angular.module("app1",["ngRoute"]);
+		//配置路由服务
+		app.config(function($routeProvider){
+			$routeProvider.when("/home",{templateUrl:"home.html"})
+//			$routeProvider.when("/home",{template:"<h1>第er个</h1>"})
+			$routeProvider.when("/my",{template:"<h1>第三个</h1>"})
+			$routeProvider.when("/you",{template:"<h1>第四个</h1>"})
+		})
+		app.controller("ct1",function($scope,$http){
+			$http.get("second.json").then(function(res){
+				$scope.arr=res.data.info;
+				console.log($scope.arr);
+			})
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.top {
+  width: 100%;
+  border-bottom: 3px solid black;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  align-items: center; }
+
+.top ul {
+  display: flex; }
+  .top ul li {
+    border: 1px solid goldenrod;
+    padding: 0.3rem; }
+
+.bot1, .bot2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  .bot1 div, .bot2 div {
+    width: 23%;
+    text-align: center; }
+    .bot1 div p, .bot2 div p {
+      font-size: 12px; }
+    .bot1 div img, .bot2 div img {
+      width: 100%; }
+
+/*# sourceMappingURL=second.css.map */

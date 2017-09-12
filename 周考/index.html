@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	    
+	    
+	</head>
+	<body>
+		<div ng-app="app1" ng-controller="ct1">
+			<br />
+			<input type="search" name="" placeholder="Search" class="form-control" ng-model="search">
+			<br />
+			<br />
+			<table border="1px solid " cellspacing="0" cellpadding="0" class="table table-striped">
+				<tr>
+					<th>操作</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>年龄</th>
+					<th>选项</th>
+				</tr>
+				<tr ng-repeat="obj in arr| filter:search">
+					<td><button ng-click="change($index)">编辑</button></td>
+					<td>{{obj.name}}</td>
+					<td>{{obj.sex}}</td>
+					<td>{{obj.age}}</td>
+					<td ><button ng-click="delete($index)">删除</button></td>
+				</tr>
+				
+			</table>
+			<button ng-click="add()">添加</button>
+		</div>
+			
+	</body>
+	<script type="text/javascript">
+		var app=angular.module("app1",[])
+		app.controller("ct1",function($scope){
+			 $scope.arr = [
+                {name:"Jack",sex:"男",age:18},
+                {name:"Rose",sex:"女",age:20},
+                {name:"Bob",sex:"男",age:24},
+                {name:"John",sex:"男",age:21}
+            ]
+			 
+			 $scope.add=function(){
+			 	var obj2={name:"xmy",sex:"女",age:19}
+                $scope.arr.push(obj2)
+			 }
+			 
+			 $scope.delete=function(index){
+			 	$scope.arr.splice(index,1)
+			 }
+			 
+			 $scope.change=function(index){
+			 	$scope.arr[index]={name:" ",sex:" ",age:"  "}
+			 }
+			 
+		})
+		
+		
+	</script>
+</html>
